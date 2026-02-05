@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pandu… I'm Truly Sorry ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #ff6a88, #ff99ac);
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.card {
+    background: rgba(0,0,0,0.3);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    z-index: 2;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+#message {
+    font-size: 20px;
+    line-height: 1.8;
+    min-height: 220px;
+}
+
+.heart {
+    font-size: 55px;
+    animation: beat 1s infinite;
+}
+
+button {
+    margin-top: 25px;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    background: white;
+    color: #ff4d6d;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ffe0e6;
+}
+
+@keyframes beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+/* Falling hearts */
+.fall {
+    position: fixed;
+    top: -10px;
+    font-size: 18px;
+    animation: fall linear infinite;
+    color: rgba(255,255,255,0.85);
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="heart">❤️</div>
+    <h1>Pandu… I'm Sorry</h1>
+    <p id="message"></p>
+    <button onclick="forgive()">If your heart still loves me… tap ❤️</button>
+</div>
+
+<script>
+/* EXTRA EMOTIONAL MESSAGE */
+const text = `My Pandu...
+
+I know I hurt you.
+And I hate myself for being the reason behind your pain.
+
+Not a single moment feels peaceful without you.
+Your silence is louder than anything in this world.
+It breaks me… slowly… deeply.
+
+You are not just someone I love.
+You are my comfort, my happiness, my heart, my home.
+
+If I could go back, I would change everything
+just to protect your smile.
+
+Please Pandu…
+Do not let this love end in pain.
+Give me one chance to heal what I broke.
+One chance to love you the way you truly deserve.
+
+I miss you.
+I feel you.
+I love you… more than my ego, more than my mistakes, more than myself. ❤️`;
+
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("message").innerHTML +=
+            text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 45);
+    }
+}
+typeWriter();
+
+/* Falling hearts */
+function heartRain() {
+    const h = document.createElement("div");
+    h.className = "fall";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.animationDuration = (3 + Math.random() * 3) + "s";
+    h.style.fontSize = (16 + Math.random() * 20) + "px";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6000);
+}
+setInterval(heartRain, 250);
+
+/* Final screen */
+function forgive() {
+    document.body.innerHTML = `
+    <div style="
+        height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-family:Arial;
+        background:linear-gradient(to bottom,#ff6a88,#ff99ac);
+        color:white;
+        text-align:center;">
+        <div>
+            <h1>Pandu ❤️</h1>
+            <p style="font-size:22px; line-height:1.8;">
+                You chose love… and you chose us.<br><br>
+                I promise from this moment,<br>
+                your heart will only feel love, respect, and care.<br><br>
+                No more pain. No more tears.<br>
+                Only us… forever. 💞
+            </p>
+        </div>
+    </div>`;
+}
+</script>
+
+</body>
+</html>
